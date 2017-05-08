@@ -1,0 +1,43 @@
+html {
+	height: 100%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	min-height: 100%;
+    text-align: center;
+}
+/*Header*/
+.container-top {
+    text-align: center;
+}
+.container-top h1 {
+    border-top-style: solid;
+    border-width: 10px;
+    border-bottom-style: solid;
+    width: 100px;
+    margin: 50px auto; 
+}
+/*Not Devoured*/
+.container-left {
+    border: 1px solid;
+    width: 33.33%;
+    height: 100%;
+    float: left;
+}
+/*Add a burger*/
+.container-middle {
+    border: 1px solid;
+    float: left;
+    width: 33.33%;
+    height: 100%;
+}
+/*Devoured*/
+.container-right {
+    border: 1px solid;
+    float: right;
+    width: 33.33%;
+    height: 100%;
+}
