@@ -38,19 +38,19 @@ module.exports = (app) => {
             res.redirect('/');
         });
      });
+    //Delete Devoured
+    app.delete('/:id', (req,res) => {
+        db.Burger.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then((data) => {
+            console.log("Destroyed!!!");
+            res.redirect('/');
+        });
+    }); 
 }
 
-// router.put("/:id", function(req, res) {
-//     var condition = "id = " + req.params.id;
-
-//      console.log("condition", condition);
-
-//     food.updateOne({
-//         devoured: req.body.devoured
-//                 }, condition, function() {
-//         res.redirect("/");
-//     });
-// });         
 // router.delete('/:id', function(req, res) {
 //                 var condition = "id = " + req.params.id;
 //     console.log("condition", condition);
