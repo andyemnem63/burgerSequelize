@@ -1,7 +1,7 @@
     <div class="container-top">
         <h1>Menu</h1>
     </div>
-
+      <p>{{foods.burger_name}}</p>
       <div class='container-left'>
         <h2>Not devoured</h2>
           <table class ="table">
@@ -19,7 +19,7 @@
                           {{this.burger_name}}
                         </td>
                         <td>
-                            <form action="/{{this.id}}  ?_method=PUT" method="POST">
+                            <form action="/{{this.id}}?_method=PUT" method="POST">
                             <input type="hidden" name="devoured" value="true">
                             <button type="submit">Devour it!</button>
                             </form>

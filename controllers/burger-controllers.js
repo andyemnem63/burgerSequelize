@@ -1,23 +1,44 @@
 // Require packages and files
-let db = require('../models');
+let db = require('../models/');
 
-module.exports = function(app) {
-    app.get("/", function(req, res) {
+module.exports = (app) => {
+   // Read all from Database
+    app.get("/", (req,res) => {
         db.Burger.findAll({}).then(function(data) {
-            console.log(data);
             var hbsObject = {
                foods: data 
             }
             res.render("index", hbsObject);
         });
     });
+
+    //Post to database
+	app.post('/', (req,res) => {
+        db.Burger.create({
+            burger_name: req.body.burger_name,
+            devoured: 0
+        }).then((data) => {
+            console.log('Posted!!');
+            // Redirect to homepage
+            res.redirect('/');
+        });
+	});
+
+    //Moves to devoured
+     app.put('/:id', (req,res) => {
+        db.Burger.update({
+            devoured:1
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+        }).then((data) => {
+            console.log("Devoured!!!");
+            res.redirect('/');
+        });
+     });
 }
-// router.post("/", function(req, res) {
-//     // Colums, [forminput, boolean = false;
-//     food.insertOne(["burger_name", "devoured"], [req.body.burger_name, "0"], function() {
-//         res.redirect("/");
-//     });
-// });
 
 // router.put("/:id", function(req, res) {
 //     var condition = "id = " + req.params.id;
