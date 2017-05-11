@@ -14,6 +14,7 @@ module.exports = (app) => {
 
     //Post to database
 	app.post('/', (req,res) => {
+            console.log("This is the request", req.body);
         db.Burger.create({
             burger_name: req.body.burger_name,
             devoured: 0
