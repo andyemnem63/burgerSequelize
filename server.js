@@ -1,8 +1,5 @@
-// *****************************************************************************
-// Server.js - This file is the initial starting point for the Node/Express server.
-//
-// ******************************************************************************
-// *** Dependencies
+
+// Dependencies
 // =============================================================
 let express = require("express");
 let bodyParser = require("body-parser");
